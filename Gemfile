@@ -54,18 +54,29 @@ group :development, :test do
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler"
-
-  # Live reloading for Hotwire applications [https://github.com/hotwired/spark]
   gem "hotwire-spark", "~> 0.1"
+  # Code Quality
+  gem "database_consistency", require: false
+  gem "rails_best_practices", require: false
+  gem "rubocop-shopify", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rspec", require: false
+  gem "rubocop-rspec_rails", require: false
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-obsession", require: false
+  gem "rubocop-thread_safety", require: false
+  gem "bundler-audit", require: false
+  gem "brakeman", require: false
+  gem "lefthook", require: false
+  gem "fasterer", require: false
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "simplecov", require: false
 end
