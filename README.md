@@ -15,8 +15,6 @@ late 2014.
 **This app is using Rails 8.0.2 and Ruby 3.4.2**. The screenshot shows
 `X.X.X` since they get updated regularly:
 
-[![Screenshot](.github/docs/screenshot.jpg)](https://github.com/nickjj/docker-rails-example/blob/main/.github/docs/screenshot.jpg?raw=true)
-
 ## Table of contents
 
 - [Tech stack](#tech-stack)
