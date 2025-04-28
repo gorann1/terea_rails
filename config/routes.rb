@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get "/up/databases", to: "up#databases", as: :up_databases
 
   # Authentication
+  resource :session
+  resources :passwords, param: :token
+  get "/users" => "users#index"
   #
 
   # Admin Routes
