@@ -30,3 +30,5 @@ yarn-debug.log*
 .env*
 !.env.example
 docker-compose.override.yml
+NOTES.md
+README.md
