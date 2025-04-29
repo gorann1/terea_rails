@@ -8,7 +8,7 @@ gem "rails", "~> 8.0"
 
 # An improved asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", "~> 1.1"
-gem "bcrypt-ruby"
+gem "bcrypt"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 

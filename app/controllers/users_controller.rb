@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
   def index
-    redirect_to new_session_path unless authenticated?
+    redirect_to login_path unless authenticated?
   end
 end
