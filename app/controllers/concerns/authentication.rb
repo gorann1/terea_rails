@@ -61,6 +61,4 @@ module Authentication
       cookies.delete(:session_id)
       session.delete(:user_id)
     end
-
-
 end

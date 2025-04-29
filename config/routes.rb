@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/up/databases", to: "up#databases", as: :up_databases
 
   # Authentication Routes
-  resource :login, controller: :sessions, only: :create #trick
+  resource :login, controller: :sessions, only: :create
   resources :passwords, param: :token
   get "/login", to: "sessions#new", as: :new_session
   get "/users" => "users#index"
