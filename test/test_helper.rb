@@ -13,6 +13,14 @@ module ActiveSupport
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 
+    def sign_in(user)
+      user.sessions.create!(user_agent: "Rails Test", ip_address: "127.0.0.1").tap do |session|
+        Current.session = session
+        cookies[:session_id] = session.id if try(:cookies)
+      end
+    end
+
+
     # Add more helper methods to be used by all tests here...
   end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "registrations/new"
+  get "registrations/create"
   root to: "pages#home"
 
   # App Routes
@@ -8,7 +10,13 @@ Rails.application.routes.draw do
   get "/up/", to: "up#index", as: :up
   get "/up/databases", to: "up#databases", as: :up_databases
 
-  # Authentication
+  # Authentication Routes
+  resource :login, controller: :sessions, only: :create
+  resources :passwords, param: :token
+  get "/login", to: "sessions#new", as: :new_session
+  get "/users" => "users#index"
+  get "/signup" => "registrations#new", as: :signup
+  post "/signup" => "registrations#create", as: :create_user
   #
 
   # Admin Routes

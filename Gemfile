@@ -8,7 +8,7 @@ gem "rails", "~> 8.0"
 
 # An improved asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", "~> 1.1"
-
+gem "bcrypt"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -40,7 +40,7 @@ gem "redis", "~> 5.2"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 # Execute jobs in the background [https://github.com/mperham/sidekiq]
 gem "sidekiq", "~> 8.0"
