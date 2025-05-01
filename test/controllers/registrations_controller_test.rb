@@ -7,7 +7,7 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    get registrations_create_url
+    get create_user_path
     assert_response :success
   end
 end

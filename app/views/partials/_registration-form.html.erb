@@ -1,40 +1,58 @@
 <div class="min-w-4xl max-sm:max-w-lg mx-auto p-6 mt-6 bg-white">
+  <% if alert == flash[:alert] %>
+    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+  <% end %>
+  <% if notice == flash[:notice] %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
   <div class="text-center mb-12 sm:mb-16">
     <img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign up to your account</h2>
   </div>
-  <form>
+  <%= form_with model: @user, url: signup_url, class: "contents" do |form| %>
     <div class="grid sm:grid-cols-2 gap-8">
       <div>
         <label class="text-slate-800 text-sm font-medium mb-2 block">First Name</label>
-        <input name="name" type="text" class="bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter name" />
+        <%= form.text_field :first_name, required: true, autofocus: true, autocomplete: "first_name",
+                             placeholder: "Enter your first name",
+                             value: params[:first_name],
+                             :class => "bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" %>
       </div>
       <div>
         <label class="text-slate-800 text-sm font-medium mb-2 block">Last Name</label>
-        <input name="lname" type="text" class="bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter last name" />
+        <%= form.text_field :last_name, required: true, autocomplete: "last_name",
+                            value: params[:last_name],
+                            placeholder: "Enter your Last Name", maxlength: 72,
+                           :class => "bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" %>
       </div>
       <div>
         <label class="text-slate-800 text-sm font-medium mb-2 block">Email Id</label>
-        <input name="email" type="text" class="bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter email" />
+        <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "email", placeholder: "Enter your email address",
+                             value: params[:email_address],
+                             :class => "bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" %>
       </div>
       <div>
         <label class="text-slate-800 text-sm font-medium mb-2 block">Mobile No.</label>
-        <input name="number" type="number" class="bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter mobile number" />
+        <%= form.text_field :mobile_number, required: false, autofocus: true, placeholder: "Enter your mobile number",
+                             value: params[:mobile_number],
+                             :class => "bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" %>
       </div>
       <div>
         <label class="text-slate-800 text-sm font-medium mb-2 block">Password</label>
-        <input name="password" type="password" class="bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter password" />
+        <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72,
+                                value: params[:password],
+                                :class => "bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" %>
       </div>
       <div>
         <label class="text-slate-800 text-sm font-medium mb-2 block">Confirm Password</label>
-        <input name="cpassword" type="password" class="bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter confirm password" />
+        <%= form.password_field :password_confirmation, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72,
+                                value: params[:password_confirmation],
+                                :class => "bg-slate-100 w-full text-slate-800 text-sm px-4 py-3 rounded focus:bg-transparent outline-blue-500 transition-all" %>
       </div>
     </div>
-
     <div class="mt-12">
-      <button type="button" class="mx-auto block py-3 px-6 text-sm font-medium tracking-wider rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
-        Sign up
-      </button>
+      <%=form.submit "Sign Up", :class =>'mx-auto block py-3 px-6 text-sm font-medium tracking-wider rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none'%>
     </div>
-  </form>
+    <p>You already have account? Please<%= link_to "Sign In", login_path, :class => 'text-indigo-800 font-semibold py-2 px-4' %></p>
+  <% end %>
 </div>

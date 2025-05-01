@@ -1,3 +1,6 @@
+<% if notice == flash[:notice] %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+<% end %>
 <div class="flex justify-center pt-24 pb-12 px-2 sm:px-0">
   <h1> Welcome <%= Current.user.email_address %>!!</h1> <br />
 </div>
@@ -7,8 +10,9 @@
 <%= link_to "Home Page", root_path %>
 <%= link_to "Contact Page", contact_path %>
 <%= link_to "React Page", static_path %>
-<%= button_to "Logout", session_path, method: :delete %>
 
+
+<%= button_to "Logout", logout_path, method: :delete %>
 
 
 

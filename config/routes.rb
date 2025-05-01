@@ -11,18 +11,23 @@ Rails.application.routes.draw do
   get "/up/databases", to: "up#databases", as: :up_databases
 
   # Authentication Routes
-  resource :login, controller: :sessions, only: :create
-  resources :passwords, param: :token
+  resources :users
+  resource :login, controller: :sessions, only: %i[new create destroy]
+  resources :passwords, only: %i[new create edit update], param: :token
   get "/login", to: "sessions#new", as: :new_session
+  delete "/logout", to: "sessions#destroy", as: :logout
   get "/users" => "users#index"
   get "/signup" => "registrations#new", as: :signup
   post "/signup" => "registrations#create", as: :create_user
+
+  # User profile
   #
 
   # Admin Routes
   get "/admin", to: "admin#index", as: :admin
 
   # User Routes
+  #
 
   # User Profile
 

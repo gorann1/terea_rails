@@ -1,8 +1,12 @@
 <% password = BCrypt::Password.create("password") %>
 
 one:
+  first_name: Admin
+  last_name: test
+  mobile_number: +385 98 1122334
   email_address: admin@test.com
   password_digest: <%= password %>
+  timezone: UTC
 
 two:
   email_address: two@example.com
