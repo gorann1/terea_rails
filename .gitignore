@@ -13,6 +13,7 @@ storage/*
 !storage/.keep
 
 coverage/*
+db/migrate/*
 
 # Ignore master key for decrypting credentials.
 config/master.key

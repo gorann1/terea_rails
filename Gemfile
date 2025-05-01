@@ -72,6 +72,8 @@ group :development do
   gem "brakeman", require: false
   gem "lefthook", require: false
   gem "fasterer", require: false
+  gem "guard"
+  gem "guard-rspec", "~> 4.7", ">= 4.7.3"
 end
 
 group :test do

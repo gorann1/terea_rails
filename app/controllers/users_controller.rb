@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def index
-    redirect_to login_path unless authenticated?
+    if session[:user_id]
+      @user = User.find_by(id: session[:user_id])
+    end
+    redirect_to new_session_path unless authenticated?
   end
 end

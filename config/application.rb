@@ -39,5 +39,12 @@ module TereaRails
     origins = ENV.fetch("ACTION_CABLE_ALLOWED_REQUEST_ORIGINS") { "http:\/\/localhost*" }.split(",")
     origins.map! { |url| /#{url}/ }
     config.action_cable.allowed_request_origins = origins
+
+    # Set Time zones
+    # Usage
+    # Time.zone      # => #<ActiveSupport::TimeZone:0x514834...>
+    # Time.zone.name # => "Eastern Time (US & Canada)"
+    # Time.zone.now  # => Sun, 18 May 2008 14:30:44 EDT -04:00
+    config.time_zone = "Europe/Amsterdam"
   end
 end
